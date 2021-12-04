@@ -1,22 +1,20 @@
 import React from 'react';
-// import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { fetchApiData } from '../redux/reducer';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchData } from '../redux/reducer';
 
 const Greeting = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchApiData());
-  // }, []);
   const message = useSelector((state) => state.message);
 
   return (
     <>
-      Greeting:
-      {' '}
-      { message }
+      <div>
+        Greeting:
+        {' '}
+        { message }
+        <button type="button" className="getGreetingBtn" onClick={() => dispatch(fetchData())}>Say Greeting</button>
+      </div>
     </>
   );
 };
